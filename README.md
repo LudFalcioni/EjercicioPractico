@@ -1,2 +1,0 @@
-# EjercicioPractico
-Clase práctica
