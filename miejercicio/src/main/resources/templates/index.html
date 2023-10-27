@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Members</title>
+</head>
+<body>
+<div>Members List</div>
+<table class="table table-dark">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Tax ID</th>
+        <th></th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="member : ${members}">
+        <td th:text="${member.getName()}"></td>
+        <td th:text="${member.getAddress()}"></td>
+        <td th:text="${member.getTaxID()}"></td>
+        <td><a th:href="@{/members/{taxID}(taxID=${member.taxID})}">View</a></td>
+        <td><a th:href="@{/members/{taxID}/edit(taxID=${member.taxID})}">Edit</a></td>
+        <td><a th:href="@{/members/{taxID}/delete(taxID=${member.taxID})}">Delete</a></td>
+    </tr>
+    </tbody>
+</table>
+<a class="badge badge-primary" th:href="@{/members/new}">New Member</a>
+</body>
+</html>
